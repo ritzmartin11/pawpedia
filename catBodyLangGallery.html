@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cat Gallery</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body{
+            background: linear-gradient(to bottom, #FFD700, #FFCC00);  
+        }
+        /* Title Style */
+        .title {
+            font-size: 32px;
+            font-weight: bold;
+            color: #333;
+            margin: 20px;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 20px;
+            justify-items: center; 
+            justify-content: center;
+            margin: 120px 20px 20px; 
+        }
+
+        .gallery-item img {
+            width: 280px;
+            height: auto;
+            border-radius: 10px;
+            border: 3px solid #333; 
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .gallery-item img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Back to Main Button */
+        .back-button {
+            padding: 10px 20px;
+            margin-top: 20px;
+            margin-left: 10px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+/* Modal styles */
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); 
+    padding-top: 60px;
+    overflow: auto;
+    transition: opacity 0.3s ease;
+    opacity: 1; 
+}
+
+/* Modal content as a card */
+.modal-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 50px;
+    padding: 10px; 
+}
+
+/* Card container */
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    margin: 20px;
+    background-color: #fff;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1); 
+    border-radius: 10px;
+    width: 800px; 
+    height: 480px; 
+    overflow: hidden; 
+}
+
+/* Image container */
+.image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Image style */
+#modalImage {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+/* Description container */
+.description {
+    flex: 1.5;
+    margin-left: 20px;
+    overflow-y: auto;
+    max-height: 400px; /* Ginawa ko itong pareho sa unang modal */
+    padding: 20px;
+}
+
+/* Title and description text styling */
+h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 16px;
+    color: #333;
+}
+
+/* Close button */
+.close {
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+}
+
+    </style>
+</head>
+<body>
+    <!-- Title at the top-left corner -->
+    <div class="title">Cat Body Language</div>
+
+    <div class="gallery-container">
+        <!-- Cat images in the gallery, each image now triggers modal -->
+        <div class="gallery-item">
+            <img src="/image/bodylangImage/1 cat.PNG" alt="Cat 1" data-title="Interested" data-desc="Cats get interested in things due to their natural curiosity, which is often driven by movement, scent, or potential prey, as well as their desire to explore their environment and understand what's around them; they may also become interested in people based on their scent, body language, and how they interact with the cat, particularly if they provide positive experiences like petting or feeding. Key reason why a dog might become alert:
+
+            Key reasons why cats get interested:
+            
+            Hunting instincts: Even domesticated cats retain a predatory instinct, making them curious about anything that might resemble prey, like small moving objects or dangling toys. 
+            
+             Social Bonding: Cats are naturally curious about their surroundings and like to investigate new spaces, objects, and even sounds. 
+            ">
+        </div>
+        <div class="gallery-item">
+            <img src="/image/bodylangImage/2 cat.PNG" alt="Cat 2" data-title="Relaxed" data-desc="A cat becomes relaxed when they feel safe, content, and unthreatened in their environment. They often show this through slow blinking, a loose and stretched-out body, and a gentle purring sound. When a cat is fully at ease, they may curl up in a cozy spot, knead with their paws, or even expose their belly, a sign of ultimate trust.
+
+            Key reasons why cats get relaxed:
+            
+            Safe & Familiar Space: Cats feel most at ease in environments where they are comfortable and free from sudden noises or disturbances.
+            
+            Affection & Trust: Gentle petting, soothing voices, and positive interactions with their favorite humans can help a cat relax.
+            
+            Warmth & Comfort: Cats naturally seek out warm, soft areas, like a sunny windowsill or a cozy blanket, to rest and unwind.
+            
+            Satisfaction & Routine: After a good meal, play session, or grooming routine, a cat often settles into a state of relaxation, feeling happy and secure.
+            ">
+        </div>
+        <div class="gallery-item">
+            <img src="/image/bodylangImage/3 cat.PNG" alt="Cat 3" data-title="Trusting" data-desc="A cat becomes trusting when they feel safe, respected, and comfortable with their environment and the people around them. Trust develops over time through positive interactions, consistency, and allowing the cat to set their own boundaries. A trusting cat may show affection, approach willingly, expose their belly, or rub against their human as a sign of comfort and security.
+
+            Key reasons why cats become trusting:
+            
+            Positive Experiences: Gentle handling, patience, and rewarding interactions help build a cat’s trust over time.
+            
+            Respect for Boundaries: Cats feel more trusting when they are given space and allowed to interact on their own terms.
+            
+            Consistency & Routine: Predictable feeding times, daily routines, and a stable environment make cats feel safe and secure.
+            
+            Engaging Play & Bonding: Interactive play, soft communication, and quality time strengthen the bond between a cat and their human.
+            
+            ">
+        </div>
+        <div class="gallery-item">
+            <img src="/image/bodylangImage/4 cat.PNG" alt="Cat 4" data-title="Friendly, Relaxed" data-desc="A cat becomes friendly and relaxed when they feel safe, comfortable, and socially engaged. They may approach with a raised tail, purr softly, rub against people, or gently nuzzle as a sign of affection. A relaxed cat will have loose body language, slow blinks, and may curl up in a cozy spot or stretch out fully, showing they trust their environment.
+
+            Key reasons why cats become friendly & relaxed:
+            
+            Positive Socialization: Regular, gentle interactions with humans and other pets help build a cat’s friendliness.
+            
+            Comfort & Security: A calm and familiar environment allows cats to let their guard down and enjoy social moments.
+            
+            Trust & Affection: Cats that receive consistent, kind treatment are more likely to seek out companionship and show friendly behavior.
+            
+            Physical & Emotional Well-Being: A well-fed, well-rested, and mentally stimulated cat is more likely to be both friendly and relaxed.
+            ">
+        </div>
+        <div class="gallery-item">
+            <img src="/image/bodylangImage/5 cat.PNG" alt="Cat 5" data-title="Conflicted, Cautious" data-desc=" A cat becomes conflicted or cautious when they feel unsure about a situation, person, or object. Their body language may show mixed signals—such as approaching but hesitating, flicking their tail, or having dilated pupils. This behavior often arises when a cat is curious but also wary of potential danger.
+
+            Key reasons why cats become conflicted & cautious:
+            
+            Unfamiliar Situations: New environments, people, or changes in routine can make a cat feel uncertain.
+            
+            Mixed Emotions: A cat may want attention but also feel overstimulated, leading to conflicted behavior like rubbing against someone and then pulling away.
+            
+            Perceived Threats: Sudden movements, loud noises, or the presence of another animal may make a cat cautious and on high alert.
+            
+            Past Experiences: Cats with negative past experiences may take longer to trust, leading to hesitation even in safe situations.
+            ">
+        </div>
+        <div class="gallery-item">
+            <img src="/image/bodylangImage/6 cat.PNG" alt="Cat 6" data-title="Playful" data-desc="A cat becomes playful when they feel energetic, curious, and engaged with their surroundings. Play is an essential part of a cat’s physical and mental well-being, allowing them to express their natural hunting instincts and bond with their human. A playful cat may pounce, chase, bat at objects, or perform sudden bursts of energy, also known as 'zoomies.'
+        
+        Key reasons why cats become playful:
+        
+        Hunting Instincts: Cats are natural hunters, and play mimics stalking, chasing, and pouncing on prey.
+        
+        Curiosity & Stimulation: New toys, interesting movements, or unexpected sounds can trigger a cat’s playful side.
+        
+        Bonding & Social Play: Cats enjoy interactive play with their humans or other pets, strengthening their social bonds.
+        
+        Energy Release: Play helps cats burn off excess energy, reducing boredom and preventing destructive behaviors.
+        
+        Happiness & Comfort: A relaxed and happy cat is more likely to initiate play, showing they feel safe in their environment.">
+        </div>
+        
+        <div class="gallery-item">
+            <img src="/image/bodylangImage/7 cat.PNG" alt="Cat 7" data-title="Frightened" data-desc="A cat becomes frightened when they perceive a threat, whether real or imagined. Their body language may include flattened ears, dilated pupils, puffed-up fur, a crouched posture, or a flicking tail. Some cats may freeze, hide, or try to escape, while others might hiss or swat if they feel cornered. Fear is a natural survival instinct that helps cats stay safe.
+
+            Key reasons why cats become frightened:
+            
+            Sudden Noises: Loud sounds like thunderstorms, fireworks, or vacuum cleaners can startle a cat and trigger fear.
+            
+            Unfamiliar People or Animals: New visitors or the presence of other pets may make a cat feel unsure or defensive.
+            
+            Changes in Environment: Moving to a new home, rearranging furniture, or introducing new scents can make a cat feel unsettled.
+            
+            Negative Past Experiences: Cats that have experienced trauma or mistreatment may be more easily frightened by certain triggers.
+            
+            Feeling Cornered: If a cat feels trapped with no escape route, they may react defensively out of fear.
+            ">
+        </div>
+        <div class="gallery-item">
+            <img src="/image/bodylangImage/8 cat.PNG" alt="Cat 8" data-title="Terrified" data-desc="A cat becomes terrified when they feel extreme fear or danger, often reacting with intense body language and defensive behaviors. A terrified cat may arch its back, puff up its fur, widen its eyes with dilated pupils, flatten its ears, or hiss and growl. Some may try to escape, hide, or even lash out if they feel trapped. This reaction is a survival instinct meant to protect them from perceived threats.
+
+            Key reasons why cats become terrified:
+            
+            Loud & Sudden Noises: Fireworks, thunderstorms, or unexpected crashes can send a cat into a panic.
+            
+            Threatening Situations: Encounters with aggressive animals, unfamiliar people, or being cornered can trigger extreme fear.
+            
+            New or Overwhelming Environments: Being in an unfamiliar place, like a vet’s office or a new home, can make a cat feel highly vulnerable.
+            
+            Trauma & Past Experiences: Cats who have experienced abuse, neglect, or scary situations may be more prone to terror responses.
+            
+            Loss of Control: Being restrained, handled roughly, or forced into uncomfortable situations (like baths or vet exams) can make a cat feel helpless and terrified.">
+        </div>
+    </div>
+
+    <a href="bodyLanguage.html" class="back-button">Back to Body Language</a>
+
+    <!-- Modal structure with new card design -->
+    <div id="catModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="card">
+                <div class="image-container">
+                    <img id="modalImage" alt="Cat Modal Image">
+                </div>
+                <div class="description">
+                    <h2 id="modalTitle">Loading title...</h2>
+                    <p id="modalDesc">Loading description...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById("catModal");
+
+        // Get all images
+        var images = document.querySelectorAll('.gallery-item img');
+
+        // Get the close button
+        var closeBtn = document.querySelector('.close');
+
+        // Loop through images to add event listeners
+        images.forEach(function(image) {
+            image.addEventListener('click', function() {
+                // Get data from clicked image
+                var title = image.getAttribute('data-title');
+                var desc = image.getAttribute('data-desc');
+                var src = image.src;
+
+                // Set modal content
+                document.getElementById("modalImage").src = src;
+                document.getElementById("modalTitle").innerText = title;
+                document.getElementById("modalDesc").innerText = desc;
+
+                // Show the modal
+                modal.style.display = "block";
+            });
+        });
+
+        // Close modal when user clicks on the close button
+        closeBtn.addEventListener('click', function() {
+            modal.style.display = "none";
+        });
+
+        // Close modal if clicked outside the modal content
+        window.addEventListener('click', function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        });
+    </script>
+
+</body>
+</html>

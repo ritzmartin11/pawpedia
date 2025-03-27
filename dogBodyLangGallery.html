@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog Gallery</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+                      
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body{
+            background: linear-gradient(to bottom, #FFD700, #FFCC00);  
+        }
+        /* Title Style */
+        .title {
+            font-size: 32px;
+            font-weight: bold;
+            color: #333;
+            margin: 20px;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+        }
+
+        /* Gallery Style */
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); 
+            gap: 20px;
+            justify-items: center; 
+            justify-content: center;
+            margin: 120px 20px 20px; 
+        }
+
+        .gallery-item img {
+            width: 280px;
+            height: auto;
+            border-radius: 10px;
+            border: 3px solid #333; 
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+        }
+
+        .gallery-item img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Back to Main Button */
+        .back-button {
+            padding: 10px 20px;
+            margin-top: 20px;
+            margin-left: 10px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+    /* Modal styles */
+    .modal {
+        display: none; 
+        position: fixed;
+        z-index: 9999;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8); 
+        padding-top: 60px;
+        overflow: auto;
+        transition: opacity 0.3s ease;
+        opacity: 1; 
+    }
+
+    /* Modal content as a card */
+    .modal-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    /* Card container */
+    .card {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1); 
+        border-radius: 10px;
+        overflow: hidden; 
+    }
+
+    /* Image container */
+    .image-container {
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Image style */
+    #modalImage {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+
+    .description {
+        flex: 1.5;
+        margin-left: 20px;
+        overflow-y: auto;
+        max-height: 400px;
+        padding: 20px;
+    }
+
+    /* Title and description text styling */
+    h2 {
+        font-size: 1.5em;
+        margin-bottom: 10px;
+    }
+
+    p {
+        font-size:16px;
+        color: #333;
+    }
+
+    /* Close button */
+    .close {
+        color: #aaa;
+        font-size: 28px;
+        font-weight: bold;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+    }
+
+    .close:hover,
+    .close:focus {
+        color: black;
+        text-decoration: none;
+    }
+
+
+    </style>
+</head>
+<body>
+    
+    <!-- Title at the top-left corner -->
+    <div class="title">Dog Body Language</div>
+
+    <div class="gallery-container">
+        <!-- Dog images in the gallery, each image now triggers modal -->
+        <div class="gallery-item">
+            <img src="/image/bodylangImage/1.PNG" alt="Dog 1" data-title="Alert" data-desc="A dog becomes alert when they sense something new or potentially threatening in their environment, often using their heightened senses of smell and hearing to pick up on subtle cues that humans might miss, prompting them to be on guard and potentially alert their owner to a potential danger or interesting occurrence; this is a natural instinctual behavior stemming from their evolutionary need to stay aware of their surroundings to protect themselves and their pack. 
+
+            Key reason why a dog might become alert:
+            
+            Strong smells: Dogs have a superior sense of smell, so they can detect scents that might indicate the presence of other animals, food, or potential threats.
+            
+            Change in environment: Even subtle changes like a different routine or a change in atmosphere can put a dog on alert. 
+            
+            Protective Instinct: Dogs may become alert to guard their territory or loved ones, especially if they perceive a potential threat. 
+            ">
+        </div>
+        <div class="gallery-item">
+            <img src="/image/bodylangImage/2.PNG" alt="Dog 2" data-title="Suspicious" data-desc="A dog becomes suspicious when they encounter something unusual, unfamiliar, or potentially deceptive in their surroundings. 
+            Their sharp senses allow them to detect subtle changes in behavior, scent, or sound that may seem out of place,
+             prompting cautious observation or hesitation. This instinct helps them assess potential threats and determine
+              whether a situation requires further action, such as barking, growling, or avoiding the perceived danger.
+
+            Key reasons why a dog might become suspicious:
+            
+            Unfamiliar People or Animals: Dogs may become wary of strangers or other animals they don’t recognize, especially if they exhibit unusual behavior.
+            
+            Unexpected Sounds or Movements: Sudden noises, rustling, or even a slight shift in an object’s position can make a dog feel uneasy.
+            
+            Inconsistent Behavior: If a person or another pet acts differently than usual, a dog may pick up on these subtle cues and respond with suspicion.
+            
+            ">
+        </div>
+        <div class="gallery-item">
+            <img src="/image/bodylangImage/3.PNG" alt="Dog 3" data-title="Anxious" data-desc="A dog becomes anxious when they feel stressed,
+             uncertain, or threatened by a situation. Their heightened senses make them sensitive to changes in their environment, 
+             routines, or interactions, leading to behaviors like whining, pacing, or hiding. 
+             Anxiety in dogs can stem from past experiences, lack of socialization, or specific triggers that make them feel unsafe
+              or uneasy.
+
+            Key reasons why a dog might become anxious:
+            
+            Separation from Owner: Many dogs develop separation anxiety when left alone for extended periods.
+            
+            Loud Noises: Thunderstorms, fireworks, or sudden loud sounds can trigger fear and nervous behavior.
+            
+            New or Unfamiliar Environments: Changes like moving to a new home, visiting the vet, or meeting.
+            ">
+        </div>
+        <div class="gallery-item">
+            <img src="/image/bodylangImage/4.PNG" alt="Dog 4" data-title="Threatened" data-desc="A dog feels threatened when they perceive danger to themselves, their territory, or their loved ones. This reaction can be triggered by sudden movements, unfamiliar people or animals, or situations where they feel trapped. When threatened, dogs may show defensive behaviors like growling, barking, or even attempting to flee or attack to protect themselves.
+
+            Key reasons why a dog might feel threatened:
+            
+            Invasion of Personal Space: Dogs may react aggressively if someone or another animal gets too close, especially when eating or resting.
+            
+            Unfamiliar or Aggressive Behavior: A dog might feel threatened by a stranger’s sudden movements, loud voice, or direct eye contact.
+            
+            Previous Trauma: Dogs with past negative experiences, such as abuse or fights, may be more sensitive to certain situations and react defensively
+            
+            ">
+        </div>
+        <div class="gallery-item">
+            <img src="/image/bodylangImage/5.PNG" alt="Dog 5" data-title="Peace" data-desc="A dog shows peace by looking away or turning its head to communicate calmness and avoid conflict. This body language is a natural way for dogs to de-escalate tense situations, signal submission, or show that they are not a threat. It’s commonly seen when they interact with other dogs, unfamiliar people, or during moments of uncertainty.
+
+            Key reasons why a dog might look away or turn its head:
+            
+            Avoiding Conflict: Dogs use this gesture to diffuse tension and show they mean no harm.
+            
+            Feeling Overwhelmed: If a dog is uncomfortable or anxious, they may turn their head to avoid direct eye contact.
+            
+            Respect and Submission: In social interactions, dogs may look away to acknowledge authority or show they are not challenging another animal or person.
+            ">
+        </div>
+        <div class="gallery-item">
+            <img src="/image/bodylangImage/6.PNG" alt="Dog 6" data-title="Stressed" data-desc="A dog may yawn when feeling stressed, overwhelmed, or uncomfortable. Unlike yawning from tiredness, a stress yawn is a calming signal dogs use to cope with anxiety and diffuse tension. It often happens in unfamiliar situations, during training, or when they sense conflict around them.
+
+            Key reasons why a dog might yawn due to stress:
+            
+            Unfamiliar or Overwhelming Situations: Meeting new people, visiting the vet, or being in a crowded place can cause stress yawning.
+            
+            Tension in the Environment: Dogs pick up on human emotions, and if their owner is stressed, they may yawn as a response.
+            
+            Being Pressured or Confused: If a dog is struggling to understand a command or feels forced into something, they may yawn as a way to cope.
+            ">
+        </div>
+        <div class="gallery-item">
+            <img src="/image/bodylangImage/7.PNG" alt="Dog 7" data-title="Need Space" data-desc="A dog shows whale eye when they feel uncomfortable, stressed, or need space. This happens when a dog turns its head slightly while keeping its eyes wide open, exposing the whites of its eyes. It’s a warning sign that they are uneasy and may react negatively if pushed further.
+
+            Key reasons why a dog might show whale eye:
+            
+            Feeling Threatened: If a dog feels cornered or pressured, they may use whale eye as a warning before growling or snapping.
+            
+            Protecting Possessions: Dogs may show this behavior when guarding food, toys, or a favorite resting spot.
+            
+            Discomfort from Handling: Some dogs display whale eye when being hugged, restrained, or touched in a way they don’t like.
+            ">
+        </div>
+        <div class="gallery-item">
+            <img src="/image/bodylangImage/8.PNG" alt="Dog 8" data-title="Relaxed" data-desc="A dog becomes relaxed when they feel safe and comfortable in their environment, often showing signs like soft ears, half-closed or blinking eyes, and a loose body posture. This state indicates that they are at ease, content, and free from stress or perceived threats, a natural response when they trust their surroundings and companions.
+
+            Key reasons why a dog might feel relaxed:
+            
+            Familiar Environment: Dogs feel most relaxed in a space they know well, surrounded by familiar scents and routines.
+            
+             Comfort & Affection: Gentle petting, a cozy resting spot, and positive interactions with their humans help reinforce relaxation.
+            
+            Calm Atmosphere: Soft sounds, a peaceful setting, and a lack of sudden disturbances allow a dog to let their guard down.
+            
+            Physical Fulfillment: After exercise, a good meal, or a play session, dogs often settle into a relaxed state, feeling satisfied and content.">
+        </div>
+    </div>
+
+    <a href="bodyLanguage.html" class="back-button">Back to Body Language</a>
+
+        <!-- Modal structure with new card design -->
+        <div id="dogModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <div class="card">
+                    <div class="image-container">
+                        <img id="modalImage" alt="Dog Modal Image">
+                    </div>
+                    <div class="description">
+                        <h2 id="modalTitle">Loading title...</h2>
+                        <p id="modalDesc">Loading description...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    <script>
+        // Get the modal
+        var modal = document.getElementById("dogModal");
+
+        // Get all images
+        var images = document.querySelectorAll('.gallery-item img');
+
+        // Get the close button
+        var closeBtn = document.querySelector('.close');
+
+        // Loop through images to add event listeners
+        images.forEach(function(image) {
+            image.addEventListener('click', function() {
+                // Get data from clicked image
+                var title = image.getAttribute('data-title');
+                var desc = image.getAttribute('data-desc');
+                var src = image.src;
+
+                // Set modal content
+                document.getElementById("modalImage").src = src;
+                document.getElementById("modalTitle").innerText = title;
+                document.getElementById("modalDesc").innerText = desc;
+
+                // Show the modal
+                modal.style.display = "block";
+            });
+        });
+
+        // Close modal when user clicks on the close button
+        closeBtn.addEventListener('click', function() {
+            modal.style.display = "none";
+        });
+
+        // Close modal if clicked outside the modal content
+        window.addEventListener('click', function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        });
+    </script>
+
+</body>
+</html>

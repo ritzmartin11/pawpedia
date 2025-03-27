@@ -1,0 +1,178 @@
+{
+  "dogs": {
+    "german_shepherd": {
+      "name": "GERMAN SHEPHERD",
+      "image": "image/breeds/dogs/1.jpg",
+      "history": "The German Shepherd, also known in Britain as an Alsatian, is a German breed of working dog of medium to large size. The breed was developed by Max von Stephanitz using various traditional Herman herding dogs form 1899.",
+      "height": "22-26 inches",
+      "weight": "50-90 pounds",
+      "coat": "Double coat, medium length",
+      "color": "Black and tan, sable, all-black",
+  
+      "otherNames": "Alsatian, Alsatian Wolf Dog, Deutscher Schäferhund, Altdeutsche Schäferhunde, GSD"
+    },
+    "golden_retriever": {
+      "name": "GOLDEN RETRIEVER",
+      "image": "image/breeds/dogs/2.jpg",
+      "history": "Originated in Scotland in the mid-1800s, developed by Lord Tweedmouth to create the perfect hunting companion capable of retrieving waterfowl in both water and land.",
+      "height": "21.5-24 inches",
+
+      "coat": "Dense, water-repellent double coat",
+      "color": "Various shades of gold",
+   
+      "otherNames": "Yellow Retriever, Russian Retriever (historical)"
+    },
+    "siberian_husky": {
+      "name": "SIBERIAN HUSKY",
+      "image": "image/breeds/dogs/3.jpg",
+      "history": "Originally developed by the Chukchi people of northeastern Asia as an endurance sled dog. They were brought to Alaska during the Nome Gold Rush for sled-dog racing and became popular across North America.",
+      "height": "20-23.5 inches",
+      "weight": "35-60 pounds",
+      "coat": "Double coat, medium length",
+      "color": "Black and white, gray and white, red and white, or pure white",
+    
+      "otherNames": "Chukcha, Chukchi Husky, Arctic Husky"
+    },
+    "bulldog": {
+      "name": "BULLDOG",
+      "image": "image/breeds/dogs/4.jpg",
+      "history": "Originally bred for bull baiting in England during the 13th century. After the sport was banned in 1835, the breed was refined into a gentler companion dog.",
+      "height": "14-15 inches",
+      "weight": "40-50 pounds",
+      "coat": "Short, smooth, and fine",
+      "color": "Red, white, fawn, or brindle, often with white markings",
+
+      "otherNames": "English Bulldog, British Bulldog, Frenchie"
+    },
+    "beagle": {
+      "name": "BEAGLE",
+      "image": "image/breeds/dogs/5.jpg",
+      "history": "One of the oldest dog breeds, developed in England for hunting rabbits and hares. The modern breed was established in the 1830s from several older breeds including the Talbot Hound.",
+      "height": "13-15 inches",
+      "weight": "20-30 pounds",
+      "coat": "Short, dense double coat",
+      "color": "Tri-color (black, white, and brown), or bi-color",
+
+      "otherNames": "English Beagle, Kerry Beagle (historical)"
+    },
+    "alaskan_husky": {
+      "name": "ALASKAN HUSKY",
+      "image": "image/breeds/dogs/6.jpg",
+      "history": "A purpose-bred working dog developed in Alaska, not a pure breed but a type of dog bred specifically for sledding. They were crucial during the Alaskan Gold Rush for transportation.",
+      "height": "21-25 inches",
+      "weight": "38-50 pounds",
+      "coat": "Medium-length double coat",
+      "color": "Various, including black, white, gray, and red",
+
+      "otherNames": "Alaskan Sled Dog, Racing Husky, Mal, Mally"
+    },
+    "poodle": {
+      "name": "POODLE",
+      "image": "image/breeds/dogs/7.jpg",
+      "history": "Despite their association with France, Poodles originated in Germany as water retrievers. The name comes from the German word 'Pudel' meaning 'to splash in water.'",
+      "height": "15-22 inches (Standard)",
+      "weight": "45-70 pounds (Standard)",
+      "coat": "Dense, curly, single-layer coat",
+      "color": "Black, white, apricot, or silver",
+   
+      "otherNames": "Caniche, Barbone (Italian), French Poodle, Pudel, Pudelhund"
+    },
+    "chihuahua": {
+      "name": "CHIHUAHUA",
+      "image": "image/breeds/dogs/8.jpg",
+      "history": "Named after the Mexican state of Chihuahua, these tiny dogs are believed to descend from the Techichi, a companion dog favored by the Toltec civilization.",
+      "height": "6-9 inches",
+      "weight": "2-6 pounds",
+      "coat": "Smooth or long coat",
+      "color": "Any color or pattern",
+    
+      "otherNames": "Mexican Dwarf Dog, Arizona Dog (historical)"
+    }
+  },
+  "cats": {
+    "persian": {
+      "name": "PERSIAN",
+      "image": "image/breeds/cats/9.jpg",
+      "history": "One of the oldest cat breeds, originating from Persia (modern-day Iran). They were first introduced to Europe in the 1600s and became popular among nobility.",
+      "height": "10-15 inches",
+      "weight": "7-12 pounds",
+      "coat": "Long, thick, luxurious",
+      "color": "Various including white, black, blue, red",
+   
+      "otherNames": "Iranian Cat, Shirazi Cat, Persian Longhair"
+    },
+    "siamese": {
+      "name": "SIAMESE",
+      "image": "image/breeds/cats/10.jpg",
+      "history": "Ancient breed from Siam (modern-day Thailand), considered sacred and kept by royal families. First appeared in the West in the late 1800s.",
+      "height": "8-10 inches",
+      "weight": "6-14 pounds",
+      "coat": "Short, fine, glossy",
+      "color": "Point coloration with seal, blue, chocolate, or lilac",
+  
+      "otherNames": "Wichien-maat (Thai), Moon Diamond (historical), Thai Cat, Royal Cat of Siam"
+    },
+    "british_shorthair": {
+      "name": "BRITISH SHORTHAIR",
+      "image": "image/breeds/cats/11.jpg",
+      "history": "Descendants of Roman cats brought to Britain, they are one of the oldest English breeds. They nearly went extinct during World War II but were saved through crossbreeding.",
+      "height": "12-14 inches",
+      "weight": "9-18 pounds",
+      "coat": "Short, dense, plush",
+      "color": "Blue-gray classic, also various other colors",
+
+      "otherNames": "British Blue"
+    },
+    "maine_coon": {
+      "name": "MAINE COON",
+      "image": "image/breeds/cats/12.jpg",
+      "history": "Native to the state of Maine, USA. Many legends surround their origin, including one claiming they're descendants of Marie Antoinette's cats.",
+      "height": "10-16 inches",
+      "weight": "8-18 pounds",
+      "coat": "Long, shaggy, water-resistant",
+      "color": "Various patterns and colors",
+   
+      "otherNames": "American Longhair, Maine Cat, American Forest Cat, Gentle Giant"
+    },
+    "ragdoll": {
+      "name": "RAGDOLL",
+      "image": "image/breeds/cats/13.jpg",
+      "history": "Developed in California in the 1960s by Ann Baker. Named for their tendency to go limp when held, like a ragdoll.",
+      "height": "9-11 inches",
+      "weight": "10-20 pounds",
+      "coat": "Semi-long, silky, minimal undercoat",
+      "color": "Point coloration with various patterns",
+      "otherNames": "Ragamuffin (historical variant)"
+    },
+    "sphynx": {
+      "name": "SPHYNX",
+      "image": "image/breeds/cats/14.jpg",
+      "history": "Originated from a natural mutation in Toronto, 1966. Developed through selective breeding of hairless cats with Devon Rex cats.",
+      "height": "8-10 inches",
+      "weight": "6-12 pounds",
+      "coat": "Hairless (actually has very fine down)",
+      "color": "All colors and patterns visible on skin",
+      "otherNames": "Canadian Hairless Cat, Mexican Hairless (historical)"
+    },
+    "american_shorthair": {
+      "name": "AMERICAN SHORTHAIR",
+      "image": "image/breeds/cats/15.jpg",
+      "history": "Descended from European cats that came to North America with early settlers. Valued for their hunting abilities on ships and farms.",
+      "height": "8-10 inches",
+      "weight": "7-12 pounds",
+      "coat": "Short, thick, hard",
+      "color": "More than 80 different colors and patterns",
+      "otherNames": "Domestic Shorthair (historical)"
+    },
+    "burmese": {
+      "name": "BURMESE",
+      "image": "image/breeds/cats/16.jpg",
+      "history": "Originated in Burma (Myanmar), developed in the US from a single cat named Wong Mau in the 1930s.",
+      "height": "9-13 inches",
+      "weight": "8-12 pounds",
+      "coat": "Short, silky, satin-like",
+      "color": "Sable, champagne, blue, platinum",
+      "otherNames": "Sacred Cat of Burma (historical), Copper Cat"
+    }
+  }
+}

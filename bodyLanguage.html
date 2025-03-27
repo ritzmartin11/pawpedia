@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breed Encyclopedia - Pet Care Guide</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Style for the title */
+        .content-header {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            margin: 20px;
+            font-size: 32px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Style for the images */
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .image-item {
+            position: relative;
+            text-align: center;
+            cursor: pointer; /* Make the images clickable */
+        }
+
+        .image-item img {
+            width: 530px; 
+            height: 380px;
+            border-radius: 10px;
+            transition: transform 0.8s ease, box-shadow 0.3s ease; 
+        }
+
+        .image-item img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .image-item .label {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 5px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body class="dashboard-body">
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <img src="image/logos.png" alt="Pet Care Logo" class="sidebar-logo" id="sidebarLogo">
+            <button class="toggle-sidebar" id="toggleSidebar">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <div class="sidebar-menu">
+            <a href="breedEncyclopedia.html" class="menu-item">
+                <i class="fas fa-paw"></i>
+                <span>Breed Encyclopedia</span>
+            </a>
+            <a href="bodyLanguage.html" class="menu-item  active">
+                <i class="fas fa-language"></i>
+                <span>Body Language</span>
+            </a>
+            <a href="latestPetCareTIp.html" class="menu-item">
+                <i class="fas fa-heart"></i>
+                <span>Latest Pet Care Tips</span>
+            </a>
+            <a href="#essential" class="menu-item">
+                <i class="fas fa-shield-alt"></i>
+                <span>Essential Care</span>
+            </a>
+            <a href="#community" class="menu-item">
+                <i class="fas fa-users"></i>
+                <span>Community</span>
+            </a>
+            <a href="index.html" class="menu-item" onclick="localStorage.clear();" style="margin-top: auto; color: #000000;">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Sign Out</span>
+            </a>
+        </div>
+    </nav>
+
+    <main class="dashboard-content">
+        <div class="content-header">
+            <!-- Title: Body Language -->
+            <span>Body Language</span>
+        </div>
+        
+        <div class="content-header">
+            <!-- Add images with labels here -->
+            <div class="image-container">
+                <div class="image-item" onclick="window.location.href='dogBodyLangGallery.html';" aria-label="View Dog Body Language Gallery">
+                    <img src="/image/breeds/dogs/2.jpg" alt="Various dog body language poses" loading="lazy">
+                    <div class="label">Dog</div>
+                </div>
+                <div class="image-item" onclick="window.location.href='catBodyLangGallery.html';" aria-label="View Cat Body Language Gallery">
+                    <img src="/image/breeds/cats/13.jpg" alt="Various cat body language poses" loading="lazy">
+                    <div class="label">Cat</div>
+                </div>
+            </div>
+        </div>
+        
+    </main>
+
+    <script src="bodyLanguage.js"></script>
+</body>
+</html>

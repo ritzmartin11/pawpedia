@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog Care Tips</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        
+        /* Sidebar Styles */
+        body {
+            display: flex;
+            min-height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Content Styles */
+        .dashboard-content {
+            margin-left: 250px; /* Push content to the right */
+            width: calc(100% - 250px);
+            padding: 40px;
+            text-align: center;
+            background: white;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: linear-gradient(to bottom, #FFD700, #FFCC00);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+            position: relative;
+        }
+
+        .title {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .tips {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            position: relative;
+        }
+
+        .tip {
+            background: white;
+            padding: 20px;
+            border-radius: 30px;
+            box-shadow: 4px 4px 10px rgba(0,0,0,0.2);
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80px; 
+            text-decoration: none;
+            color: black;
+        }
+        .tip {
+            text-decoration: none; 
+            color: black; 
+            display: block; 
+            padding: 20px; 
+        }
+
+        .tip:hover {
+            color: #FF5733; 
+        }
+
+        .dog-img-tip {
+            position: absolute;
+            top: -100px;
+            right: -10px;
+            width: 150px;
+            object-fit: cover; 
+        }
+
+        .dog-img-left {
+            position: absolute;
+            top: -50px; 
+            left: 1px; 
+            width: 180px;
+            z-index: 1;
+        }
+
+
+        .dog-img-top {
+            display: block;
+            margin: auto;
+            width: 150px;
+        }
+
+        .dog-img-tip {
+            position: absolute;
+            top: -100px;
+            right: -10px;
+            width: 150px;
+        }
+
+
+       
+        .modal {
+            display: none; 
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 50%;
+            text-align: left;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+        .modal.show {
+            display: flex !important;
+            opacity: 1;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        .modal-content h2 {
+            margin-bottom: 15px; 
+        }
+        .modal-bottom-img {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        width: 250px; 
+        }
+
+        .close-container {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 28px;
+            font-weight: bold;
+            color: black;
+            cursor: pointer;
+        }
+    
+        .close-container:hover {
+            color: red;
+        }
+        #modalDescription {
+            margin-top: 10px;
+        white-space: pre-line; 
+        text-align: left; 
+        font-size: 18px; 
+        line-height: 1.6; 
+    }
+
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <img src="image/logos.png" alt="Pet Care Logo" class="sidebar-logo">
+            <button class="toggle-sidebar" id="toggleSidebar">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <div class="sidebar-menu">
+            <a href="breedEncyclopedia.html" class="menu-item">
+                <i class="fas fa-paw"></i>
+                <span>Breed Encyclopedia</span>
+            </a>
+            <a href="bodyLanguage.html" class="menu-item">
+                <i class="fas fa-language"></i>
+                <span>Body Language</span>
+            </a>
+            <a href="latestPetCareTIp.html" class="menu-item active">
+                <i class="fas fa-heart"></i>
+                <span>Latest Pet Care Tips</span>
+            </a>
+            <a href="#essential" class="menu-item">
+                <i class="fas fa-shield-alt"></i>
+                <span>Essential Care</span>
+            </a>
+            <a href="#community" class="menu-item">
+                <i class="fas fa-users"></i>
+                <span>Community</span>
+            </a>
+            <a href="index.html" class="menu-item" onclick="localStorage.clear();" style="margin-top: auto; color: #000000;">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Sign Out</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="dashboard-content">
+        <div class="container">
+            <span class="close-container" onclick="closeContainer()">&times;</span>
+            <img src="image/upDog1.png" alt="Dog Image" class="dog-img-left">
+            <img src="image/dogLatestpetCareTipPic1.png" alt="Dog Image" class="dog-img-top">
+            <h1 class="title">DOGS LATEST PET CARE TIPS</h1>
+            <div class="tips">
+                <a class="tip" data-index="0">Wearable Pet Technology for Health Monitoring</a>
+                <a class="tip" data-index="1">
+                    <img src="image/upDog2.png" alt="Dog Image" class="dog-img-tip">
+                    Dental Health Awareness
+                </a>
+                <a class="tip" data-index="2">Hydration and Nutrition Upgrades</a>
+                <a class="tip" data-index="3">Safe Outdoor Adventures</a>
+                <a class="tip" data-index="4">Mental Stimulation and Interactive Play</a>
+                <a class="tip" data-index="5">Aging and Senior Dog Care</a>
+                <a class="tip" data-index="6">Grooming and Seasonal Care</a>
+                <a class="tip" data-index="7">Litter-Free and Safe Home Environment</a>
+            </div>            
+        </div>
+    </div>
+    
+
+
+    <!-- Modal Structure -->
+    <div id="tipModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h1 id="modalTitle">Title Here</h1>
+            <p id="modalDescription">Description goes here...</p>
+            <img id="modalBottomImage" src="image/bottomimageModal.png" alt="Default Image" class="modal-bottom-img">
+        </div>
+    </div>
+
+
+    <script src="dogCareTips.js"></script>
+</body>
+</html>

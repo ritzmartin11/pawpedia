@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breed Encyclopedia - Pet Care Guide</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+       .content-header {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            margin: 20px;
+            font-size: 32px;
+            font-weight: bold;
+            color: #333;
+        }
+
+    .image-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        margin-top: 50px;
+    }
+
+    .image-container-item {
+        text-align: center; 
+        cursor: pointer;
+    }
+
+    .image-container-item img {
+    width: 530px; 
+    height: 380px;
+    border-radius: 15px; 
+    transition: transform 0.8s ease, box-shadow 0.3s ease;
+    border: 4px solid #FFE15D; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+
+    .image-container-item img:hover {
+        transform: scale(1.1);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .label {
+        margin-top: 10px; /* Space between image and label */
+        font-size: 32px;
+        font-weight: bold;
+        color: black;
+        text-align: center;
+    }
+
+    </style>
+</head>
+<body class="dashboard-body">
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <img src="image/logos.png" alt="Pet Care Logo" class="sidebar-logo" id="sidebarLogo">
+            <button class="toggle-sidebar" id="toggleSidebar">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <div class="sidebar-menu">
+            <a href="breedEncyclopedia.html" class="menu-item">
+                <i class="fas fa-paw"></i>
+                <span>Breed Encyclopedia</span>
+            </a>
+            <a href="bodyLanguage.html" class="menu-item">
+                <i class="fas fa-language"></i>
+                <span>Body Language</span>
+            </a>
+            <a href="latestPetCareTIp.html" class="menu-item active">
+                <i class="fas fa-heart"></i>
+                <span>Latest Pet Care Tips</span>
+            </a>
+            <a href="#essential" class="menu-item">
+                <i class="fas fa-shield-alt"></i>
+                <span>Essential Care</span>
+            </a>
+            <a href="#community" class="menu-item">
+                <i class="fas fa-users"></i>
+                <span>Community</span>
+            </a>
+            <a href="index.html" class="menu-item" onclick="localStorage.clear();" style="margin-top: auto; color: #000000;">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Sign Out</span>
+            </a>
+        </div>
+    </nav>
+
+    <main class="dashboard-content">
+        <div class="content-header">
+            <span>Latest Pet Care</span>
+        </div>
+        
+        <div class="content-header">
+            <!-- Add images with labels here -->
+            <div class="image-container">
+                <div class="image-container-item" onclick="window.location.href='dogCareTips.html';" aria-label="View Dog Body Language Gallery">
+                    <img src="/image/dogGroup1.png" alt="Various dog body language poses" loading="lazy">
+                    <div class="label">Dog</div> <!-- Label below the image -->
+                </div>
+                
+                <div class="image-container-item" onclick="window.location.href='catCareTips.html';" aria-label="View Cat Body Language Gallery">
+                    <img src="/image/catGroup1.png" alt="Various cat body language poses" loading="lazy">
+                    <div class="label">Cat</div> <!-- Label below the image -->
+                </div>
+            </div>
+            
+        
+    </main>
+
+    <script src="bodyLanguage.js"></script>
+</body>
+</html>

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breed Encyclopedia - Pet Care Guide</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        #breedModal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+
+        #breedModal .modal-content {
+            height: 85vh;
+            margin: 20px auto;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #breedModal .modal-grid {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        #breedModal .info-panel {
+            max-height: calc(100% - 60px);
+            padding-top: -0px;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body class="dashboard-body">
+    <nav class="sidebar">
+        <div class="sidebar-header">
+            <img src="image/logos.png" alt="Pet Care Logo" class="sidebar-logo" id="sidebarLogo">
+            <button class="toggle-sidebar" id="toggleSidebar">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <div class="sidebar-menu">
+            <a href="#breed" class="menu-item active">
+                <i class="fas fa-paw"></i>
+                <span>Breed Encyclopedia</span>
+            </a>
+            <a href="bodyLanguage.html" class="menu-item">
+                <i class="fas fa-language"></i>
+                <span>Body Language</span>
+            </a>
+            <a href="latestPetCareTIp.html" class="menu-item">
+                <i class="fas fa-heart"></i>
+                <span>Latest Pet Care Tips</span>
+            </a>
+            <a href="#essential" class="menu-item">
+                <i class="fas fa-shield-alt"></i>
+                <span>Essential Care</span>
+            </a>
+            <a href="#community" class="menu-item">
+                <i class="fas fa-users"></i>
+                <span>Community</span>
+            </a>
+            <a href="index.html" class="menu-item" onclick="localStorage.clear();" style="margin-top: auto; color: #000000;">
+                <i class="fas fa-sign-out-alt"></i>
+                <span>Sign Out</span>
+            </a>
+        </div>
+    </nav>
+
+    <main class="dashboard-content">
+        <div class="content-header">
+            <h1>Breed Encyclopedia</h1>
+            <p>Explore different breeds of cats and dogs</p>
+        </div>
+        <div class="content-section">
+            <div class="breed-header">
+                <div class="breed-tabs">
+                    <button class="breed-tab active" data-tab="dogs">Dogs</button>
+                    <button class="breed-tab" data-tab="cats">Cats</button>
+                </div>
+                <div class="search-container">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" class="search-input" placeholder="Search breeds..." id="breedSearch">
+                </div>
+            </div>
+            
+            <div class="breed-section active" id="dogs">
+                <div class="breed-grid">
+                    <div class="breed-card" data-breed="german_shepherd">
+                        <div class="breed-image">
+                            <img src="image/breeds/dogs/1.jpg" alt="German Shepherd dog">
+                        </div>
+                        <div class="breed-info">
+                            <h3 class="breed-name">German Shepherd</h3>
+                            <p class="breed-description">Intelligent and versatile working dog</p>
+                        </div>
+                    </div>
+                    <div class="breed-card" data-breed="golden_retriever">
+                        <div class="breed-image">
+                            <img src="image/breeds/dogs/2.jpg" alt="Golden Retriever dog">
+                        </div>
+                        <div class="breed-info">
+                            <h3 class="breed-name">Golden Retriever</h3>
+                            <p class="breed-description">Friendly and intelligent family companion</p>
+                        </div>
+                    </div>
+                    <div class="breed-card" data-breed="siberian_husky">
+                        <div class="breed-image">
+                            <img src="image/breeds/dogs/3.jpg" alt="Siberian Husky dog">
+                        </div>
+                        <div class="breed-info">
+                            <h3 class="breed-name">Siberian Husky</h3>
+                            <p class="breed-description">Energetic and athletic working dog</p>
+                        </div>
+                    </div>
+                    <div class="breed-card" data-breed="bulldog">
+                        <div class="breed-image">
+                            <img src="image/breeds/dogs/4.jpg" alt="Bulldog">
+                        </div>
+                        <div class="breed-info">
+                            <h3 class="breed-name">Bulldog</h3>
+                            <p class="breed-description">Calm and friendly companion</p>
+                        </div>
+                    </div>
+                    <div class="breed-card" data-breed="beagle">
+                        <div class="breed-image">
+                            <img src="image/breeds/dogs/5.jpg" alt="Beagle dog">
+                        </div>
+                        <div class="breed-info">
+                            <h3 class="breed-name">Beagle</h3>
+                            <p class="breed-description">Merry and friendly scent hound</p>
+                        </div>
+                    </div>
+                    <div class="breed-card" data-breed="alaskan_husky">
+                        <div class="breed-image">
+                            <img src="image/breeds/dogs/6.jpg" alt="Alaskan Husky">
+                        </div>
+                        <div class="breed-info">
+                            <h3 class="breed-name">Alaskan Husky</h3>
+                            <p class="breed-description">Elegant and highly intelligent breed</p>
+                        </div>
+                    </div>
+                    <div class="breed-card" data-breed="poodle">
+                        <div class="breed-image">
+                            <img src="image/breeds/dogs/7.jpg" alt="Poodle dog">
+                        </div>
+                        <div class="breed-info">
+                            <h3 class="breed-name">Poodle</h3>
+                            <p class="breed-description">Small but spirited companion</p>
+                        </div>
+                    </div>
+                    <div class="breed-card" data-breed="chihuahua">
+                        <div class="breed-image">
+                            <img src="image/breeds/dogs/8.jpg" alt="Chihuahua">
+                        </div>
+                        <div class="breed-info">
+                            <h3 class="breed-name">Chihuahua</h3>
+                            <p class="breed-description">Loyal and confident guardian</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="no-results" style="display: none;">No matching breeds found</div>
+            </div>
+
+            <div class="breed-section" id="cats">
+                <div class="breed-grid">
+                    <div class="breed-card" data-breed="persian">
+                        <div class="breed-image">
+                            <img src="image/breeds/cats/9.jpg" alt="Persian cat">
+                        </div>
+                        <div class="breed-info">
+                            <h3 class="breed-name">Persian</h3>
+                            <p class="breed-description">Gentle and calm lap cat</p>
+                        </div>
+                    </div>
+                    <div class="breed-card" data-breed="siamese">
+                        <div class="breed-image">
+                            <img src="image/breeds/cats/10.jpg" alt="Siamese cat">
+                        </div>
+                        <div class="breed-info">
+                            <h3 class="breed-name">Siamese</h3>
+                            <p class="breed-description">Vocal and social</p>
+                        </div>
+                    </div>
+                    <div class="breed-card" data-breed="british_shorthair">
+                        <div class="breed-image">
+                            <img src="image/breeds/cats/11.jpg" alt="British Shorthair">
+                        </div>
+                        <div class="breed-info">
+                            <h3 class="breed-name">British Shorthair</h3>
+                            <p class="breed-description">Independent and affectionate</p>
+                        </div>
+                    </div>
+                    <div class="breed-card" data-breed="maine_coon">
+                        <div class="breed-image">
+                            <img src="image/breeds/cats/12.jpg" alt="Maine Coon cat">
+                        </div>
+                        <div class="breed-info">
+                            <h3 class="breed-name">Maine Coon</h3>
+                            <p class="breed-description">Friendly and playful</p>
+                        </div>
+                    </div>
+                    <div class="breed-card" data-breed="ragdoll">
+                        <div class="breed-image">
+                            <img src="image/breeds/cats/13.jpg" alt="Ragdoll cat">
+                        </div>
+                        <div class="breed-info">
+                            <h3 class="breed-name">Ragdoll</h3>
+                            <p class="breed-description">Relaxed and docile</p>
+                        </div>
+                    </div>
+                    <div class="breed-card" data-breed="sphynx">
+                        <div class="breed-image">
+                            <img src="image/breeds/cats/14.jpg" alt="Sphynx cat">
+                        </div>
+                        <div class="breed-info">
+                            <h3 class="breed-name">Sphynx</h3>
+                            <p class="breed-description">Energetic and affectionate</p>
+                        </div>
+                    </div>
+                    <div class="breed-card" data-breed="american_shorthair">
+                        <div class="breed-image">
+                            <img src="image/breeds/cats/15.jpg" alt="American Shorthair cat">
+                        </div>
+                        <div class="breed-info">
+                            <h3 class="breed-name">American Shorthair</h3>
+                            <p class="breed-description">Adaptable and good-natured</p>
+                        </div>
+                    </div>
+                    <div class="breed-card" data-breed="burmese">
+                        <div class="breed-image">
+                            <img src="image/breeds/cats/16.jpg" alt="Burmese cat">
+                        </div>
+                        <div class="breed-info">
+                            <h3 class="breed-name">Burmese</h3>
+                            <p class="breed-description">Playful and social</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="no-results" style="display: none;">No matching breeds found</div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Breed Modal -->
+    <div id="breedModal" class="modal">
+        <div class="modal-content">
+            <button class="close-modal">&times;</button>
+            <div class="modal-grid">
+                <div class="modal-image-side">
+                    <div class="modal-image-wrapper">
+                        <img id="modalBreedImage" src="" alt="Breed Image">
+                    </div>
+                    <div class="breed-title">
+                        <h2 id="modalBreedName"></h2>
+                    </div>
+                </div>
+                <div class="modal-info-side">
+                    <div class="info-tabs">
+                        <button class="info-tab active" data-tab="history">History</button>
+                        <button class="info-tab" data-tab="characteristics">Characteristics</button>
+                        <button class="info-tab" data-tab="otherNames">Other Names</button>
+                    </div>
+                    <div class="info-content">
+                        <div id="historyPanel" class="info-panel active">
+                            <p id="modalHistory"></p>
+                        </div>
+                        <div id="characteristicsPanel" class="info-panel">
+                            <div id="modalCharacteristics">
+                                <div class="characteristics-grid">
+                                    <div class="char-item">
+                                        <span class="char-label">Height:</span>
+                                        <span id="modalHeight" class="char-value"></span>
+                                    </div>
+                                    <div class="char-item">
+                                        <span class="char-label">Weight:</span>
+                                        <span id="modalWeight" class="char-value"></span>
+                                    </div>
+                                    <div class="char-item">
+                                        <span class="char-label">Coat:</span>
+                                        <span id="modalCoat" class="char-value"></span>
+                                    </div>
+                                    <div class="char-item">
+                                        <span class="char-label">Color:</span>
+                                        <span id="modalColor" class="char-value"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="otherNamesPanel" class="info-panel">
+                            <ul id="modalOtherNames" class="other-names-list"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="breedEncyclopedia.js"></script>
+</body>
+</html>
